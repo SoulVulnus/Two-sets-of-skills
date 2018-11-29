@@ -139,10 +139,8 @@
 
     </div>
 </body>
-
 <script src="./js/common/zepto.js"></script>
 <script src="./js/common/better-scroll.js"></script>
-
 <script src="./swiper/swiper-4.1.6.min.js"></script>
 <script src="./js/index.js"></script>
 <script>
@@ -159,14 +157,7 @@
     var Myswiperd = new Swiper('.swiper-container', {
         initialSlide: 1,
     })
-    var Myswiper = new Swiper('.sectionCenter', {
-        on: {
-            slideChange: function() {
-                // var io = Myswiper.activeIndex;
-                // $('#footer').find('dl').eq(io).addClass('active').siblings().removeClass('active')
-            }
-        },
-    });
+
     //侧边栏点击高亮
     $('.list').on('click', 'li', function() {
         $(this).addClass('fontd').siblings().removeClass('fontd');
@@ -180,50 +171,7 @@
         Myswiper.slideTo(ind, 200)
 
     });
-    //ajax请求
-    // $.ajax({
-    //     url: "./data/data.json",
-    //     data: {
-    //         name: '1026',
-    //         pic: "100"
-    //     },
-    //     success: function(data) {
-    //         if (data.code === 0) {
-    //             init(data)
-    //         } else {
-    //             console.log('失败')
-    //         }
-    //     }
-    // });
-    // //初始化函数
-    // function init(data) {
-    //     leftData(data.left)
-    //     rightData(data.init)
-    //     clickd(data.right)
-    // }
-    // //侧边栏渲染
-    // function leftData(data) {
-    //     html = '';
-    //     $.each(data, function(i, v) {
-    //         html += `<li data-id='${v.id}'>${v.text}</li>`
-    //     })
-    //     $('#list').append(html);
-    //     $('#list').find('li').eq(0).addClass('fontd')
-    // }
-    // //右侧商品默认页面
-    // function rightData(data) {
-    //     add = '';
-    //     $.each(data, function(i, v) {
-    //         add += `
-    //                  <dl>
-    //                     <dd><img src="${v.img}" alt=""></dd>
-    //                  <dt>${v.txt}</dt>
-    //             </dl>
-    //             `;
-    //     })
 
-    //     $('#rightslide_next').html(add)
-    // }
     //点击左侧渲染右侧商品
     function clickd(data) {
         $('#list').on('click', 'li', function() {
@@ -234,12 +182,6 @@
             }
             var Datad = filt(data, "id", indexleft)
             rightData(Datad)
-        })
-    }
-    //筛选数据函数
-    function filt(data, key, val) {
-        return data.filter(function(item) {
-            return item[key] === val;
         })
     }
 </script>
