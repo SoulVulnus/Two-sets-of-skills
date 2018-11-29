@@ -20,7 +20,121 @@
             <div class="iconfont icon-fangdajing"></div>
         </header>
         <section>
+            <div class="swiper-container  sectionCenter">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">1</div>
+                    <div class="swiper-slide">
+                        <div class="leftslide">
+                            <div>
+                                <ul class="list" id="list">
+                                    <li>1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>4</li>
+                                    <li>5</li>
+                                    <li>6</li>
+                                    <li>7</li>
+                                    <li>9</li>
+                                    <li>1</li>
+                                    <li>2</li>
+                                    <li>1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>4</li>
+                                    <li>5</li>
+                                    <li>6</li>
+                                    <li>7</li>
+                                    <li>9</li>
+                                    <li>1</li>
+                                    <li>2</li>
 
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="rightslide">
+                            <div>
+                                <h1>——————<span class="righth1">新品 </span>——————</h1>
+                                <div class="rightslide_next" id="rightslide_next">
+                                    <dl>
+                                        <dt><img src="img/2 (1).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (1).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (1).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (1).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (1).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (1).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (1).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (10).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (10).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (10).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (10).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (10).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (10).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (10).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (10).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (10).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (10).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><img src="img/2 (10).jpg" alt=""></dt>
+                                        <dd>手机</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">3</div>
+                    <div class="swiper-slide">4</div>
+                </div>
+            </div>
         </section>
 
     </div>
@@ -31,6 +145,103 @@
 
 <script src="./swiper/swiper-4.1.6.min.js"></script>
 <script src="./js/index.js"></script>
+<script>
+    var Bscoll = new BScroll('.leftslide', {
+        click: true,
+        probeType: 2,
+        scrollBar: true
+    })
+    var Bscolld = new BScroll('.rightslide', {
+        click: true,
+        probeType: 2,
+        scrollBar: true
+    });
+    var Myswiperd = new Swiper('.swiper-container', {
+        initialSlide: 1,
+    })
+    var Myswiper = new Swiper('.sectionCenter', {
+        on: {
+            slideChange: function() {
+                // var io = Myswiper.activeIndex;
+                // $('#footer').find('dl').eq(io).addClass('active').siblings().removeClass('active')
+            }
+        },
+    });
+    //侧边栏点击高亮
+    $('.list').on('click', 'li', function() {
+        $(this).addClass('fontd').siblings().removeClass('fontd');
+        var ht = $(this).html();
+        $('.righth1').html(ht);
+    });
+    //脚部点击切换颜色和section
+    $('#footer').on('click', 'dl', function() {
+        $(this).addClass('active').siblings().removeClass('active');
+        var ind = $(this).index();
+        Myswiper.slideTo(ind, 200)
 
+    });
+    //ajax请求
+    // $.ajax({
+    //     url: "./data/data.json",
+    //     data: {
+    //         name: '1026',
+    //         pic: "100"
+    //     },
+    //     success: function(data) {
+    //         if (data.code === 0) {
+    //             init(data)
+    //         } else {
+    //             console.log('失败')
+    //         }
+    //     }
+    // });
+    // //初始化函数
+    // function init(data) {
+    //     leftData(data.left)
+    //     rightData(data.init)
+    //     clickd(data.right)
+    // }
+    // //侧边栏渲染
+    // function leftData(data) {
+    //     html = '';
+    //     $.each(data, function(i, v) {
+    //         html += `<li data-id='${v.id}'>${v.text}</li>`
+    //     })
+    //     $('#list').append(html);
+    //     $('#list').find('li').eq(0).addClass('fontd')
+    // }
+    // //右侧商品默认页面
+    // function rightData(data) {
+    //     add = '';
+    //     $.each(data, function(i, v) {
+    //         add += `
+    //                  <dl>
+    //                     <dd><img src="${v.img}" alt=""></dd>
+    //                  <dt>${v.txt}</dt>
+    //             </dl>
+    //             `;
+    //     })
+
+    //     $('#rightslide_next').html(add)
+    // }
+    //点击左侧渲染右侧商品
+    function clickd(data) {
+        $('#list').on('click', 'li', function() {
+            var indexleft = $(this).index();
+            console.log(indexleft)
+            if (indexleft > 10) {
+                var indexleft = (indexleft % 10) - 1;
+            }
+            var Datad = filt(data, "id", indexleft)
+            rightData(Datad)
+        })
+    }
+    //筛选数据函数
+    function filt(data, key, val) {
+        return data.filter(function(item) {
+            return item[key] === val;
+        })
+    }
+</script>
 
 </html>
